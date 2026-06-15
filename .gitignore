@@ -1,0 +1,4 @@
+ragvenv/
+.env/
+__pycache__/
+.git/
