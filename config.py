@@ -1,7 +1,7 @@
 import os   
-from dotenv import load_env
+from dotenv import load_dotenv
 
-load_env() # it loads your .env file
+load_dotenv() # it loads your .env file
 
 # LLM
 GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
