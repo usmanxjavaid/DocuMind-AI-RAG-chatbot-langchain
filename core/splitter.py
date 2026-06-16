@@ -3,7 +3,7 @@ from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import config
 
-class splitter:
+class Splitter:
     def __init__(self): # Declares the splitter constructor
         self._splitter = RecursiveCharacterTextSplitter(
             chunk_size=config.CHUNK_SIZE,
