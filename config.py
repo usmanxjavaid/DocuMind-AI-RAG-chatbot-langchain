@@ -5,7 +5,7 @@ load_dotenv() # it loads your .env file
 
 # LLM
 GROQ_API_KEY = os.getenv('GROQ_API_KEY', '')
-LLM_MODEL = 'llama3-8b-8192'
+LLM_MODEL = 'llama-3.1-8b-instant'
 LLM_TEMPERATURE = 0.1
 LLM_MAX_TOKENS = 1024
 
