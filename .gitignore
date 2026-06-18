@@ -2,3 +2,4 @@ ragvenv/
 .env/
 __pycache__/
 .git/
+database.db
