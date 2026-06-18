@@ -17,7 +17,7 @@ class VectorStore:
         self._embedding = HuggingFaceEmbeddings(
             model_name=config.EMBEDDING_MODEL,
             model_kwargs={'device': 'cpu'},
-            encode_kwargs={'normalize_embedding': True},
+            encode_kwargs={'normalize_embeddings': True},
         )
 
         self._db: Optional[Chroma] = None
@@ -43,7 +43,7 @@ class VectorStore:
         if self._db is None:
             self._db = Chroma.from_documents(
                 documents=chunks,
-                embedding=self._embeddings,
+                embedding=self._embedding,
                 collection_name=config.CHROMA_COLLECTION,
                 persist_directory=config.CHROMA_DIR,
             )
@@ -62,7 +62,7 @@ class VectorStore:
         )
     
     def count(self) -> int:
-        return self._db._collection_count() if self._db else 0
+        return self._db._collection.count() if self._db else 0
     
     def list_files(self) -> List[str]:
         if not self._db:
