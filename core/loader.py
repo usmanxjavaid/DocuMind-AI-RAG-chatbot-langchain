@@ -27,7 +27,9 @@ class Loader:
             loader = Docx2txtLoader(str(path))
         elif path.suffix.lower() == '.txt':
             loader = TextLoader(str(path), encoding='utf-8')
-
+        else:
+            raise ValueError(f"Unsupported file: {path.suffix}. Use PDF, DOCX or TXT.")
+        
         docs = loader.load()
 
         # Tag every page with the filename so we can cite it later

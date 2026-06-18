@@ -7,7 +7,7 @@ class Pipeline:
     def __init__(self, vectorstore: VectorStore):
         self._loader = Loader()
         self._splitter = Splitter()
-        self._vs = VectorStore()
+        self._vs = vectorstore
 
     def run(self, file_paths: Union[str, List[str]]) -> dict:
         """Load -> split -> embed -> store. Returns summary."""
@@ -31,7 +31,7 @@ class Pipeline:
         chunks = self._splitter.split(all_docs)
 
         # Step 3: Store
-        self._vs.add_documents(all_docs)
+        self._vs.add_documents(chunks)
 
         print('--- Ingestion complete ---\n')
         return {

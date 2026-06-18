@@ -33,7 +33,7 @@ class RAGChain:
         def __init__(self, retriever):
             self._retriever = retriever # Stores the retriever on the _instance
             self._history: List = [] # declare self._history as an empty list to store conversations
-            self._last_docs_: List = [] # declare self._last_docs as an empty list to store recently retrieved document chunks
+            self._last_docs: List = [] # declare self._last_docs as an empty list to store recently retrieved document chunks
 
             self._llm = ChatGroq(
                 api_key=config.GROQ_API_KEY,
@@ -93,8 +93,8 @@ class RAGChain:
                 if key not in seen:
                     seen.add(key)
                     sources.append({
-                         'file': doc.metdata.get('source_file', 'Unknown'),
-                         'page': str(doc.metadat.get('page', 'N/A')),
+                         'file': doc.metadata.get('source_file', 'Unknown'),
+                         'page': str(doc.metadata.get('page', 'N/A')),
                          'snippet': doc.page_content[:200] + '...',
                     })
             return sources

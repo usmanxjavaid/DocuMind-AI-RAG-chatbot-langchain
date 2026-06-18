@@ -21,4 +21,4 @@ class Splitter:
         for i, chunk in enumerate(chunks): # enumerate over all chunks to get an index i and chunk object
             chunk.metadata['chunk_id'] = i # stores the chunk index into metadata dictionary under the key 'chunk_id'
             print(f'Split into: {len(chunks)} chunks')
-            return chunks
+        return chunks
